@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+   
+    <script src="assets/js/angular.js"></script>
+    <script src="assets/js/angular-route.js"></script>
+    <script src="assets/js/angular-animate.js"></script>
+
+   
+    <script src="app/app.js"></script>
+   
+    
+    <script src="app/controllers/userCtrl.js"></script>
+    <script src="app/controllers/mainCtrl.js"></script>
+    <script src="app/controllers/profileCtrl.js"></script>
+    
+   
+    <script src="app/services/userServices.js"></script>
+    <script src="app/services/authServices.js"></script>
+    <script src="app/services/contactServices.js"></script>
+
+   
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+
+    <title>Test</title>
+
+</head>
+
+<body ng-app="userApp" ng-controller="mainCtrl as main"  ng-cloak>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
+        <div class="container">
+    
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="/">Sagar MEAN Demo</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden active">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="">
+                        <a class="page-scroll" href="/">Home</a>
+                    </li>
+                    <li class="">
+                        <a ng-show="!main.isLoggedIn" class="page-scroll" href="/login">Login</a>
+                    </li>
+                    <li class="">
+                        <a ng-show="!main.isLoggedIn" class="page-scroll" href="/register">Register</a>
+                    </li>
+                    <li class="">
+                        <a ng-show="main.isLoggedIn" class="page-scroll" href="#" ng-click="main.logout();">Logout</a>
+                    </li>
+                    <li class="">
+                        <a ng-show="main.isLoggedIn" class="page-scroll" href="/profile">Hello {{ main.username }}</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+      
+    </nav>
+
+
+    <section id="services">
+        <div class="container">
+            <div class="row">
+
+               
+                <div ng-view></div>
+               
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/js/jquery-3.1.1.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+</body>
+
+</html>
